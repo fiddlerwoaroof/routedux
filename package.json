@@ -80,7 +80,9 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "testURL": "http://localhost",
+    "testEnvironmentOptions": {
+      "url": "http://localhost"
+    },
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/**/*.d.ts"
