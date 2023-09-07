@@ -70,7 +70,8 @@ function RouteLink({ routeName, params, children, ...props }) {
               dispatcher.receiveRoute({ routeName, ...params }, true);
             }}
             href={url}
-            {...props}>
+            {...props}
+          >
             {children}
           </a>
         );
