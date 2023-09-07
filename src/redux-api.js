@@ -31,18 +31,7 @@ function enhanceStoreFactory(actionDispatcher) {
 export default function installBrowserRouter(routesConfig, _window = window) {
   const actionDispatcher = createActionDispatcher(routesConfig, _window);
 
-  const middleware = x => {
-    //eslint-disable-next-line no-console
-    console.warn(
-      "Using the routedux middleware directly is deprecated, the enhancer now" +
-        " applies it automatically and the middleware is now a no-op that" +
-        " will be removed in later versions."
-    );
-    return y => y;
-  };
-
   return {
-    middleware,
     enhancer: enhanceStoreFactory(actionDispatcher),
     init: actionDispatcher.init.bind(actionDispatcher),
     _actionDispatcher: actionDispatcher,
