@@ -1,7 +1,7 @@
 import { _internal } from "../action-link";
 import Enzyme, { mount } from "enzyme";
 import ezJson from "enzyme-to-json";
-import Adapter from "enzyme-adapter-react-16";
+import Adapter from "@cfaester/enzyme-adapter-react-18";
 Enzyme.configure({ adapter: new Adapter() });
 
 import React from "react";
