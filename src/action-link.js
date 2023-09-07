@@ -15,7 +15,8 @@ const ActionLink = (React, PropTypes) => {
             ev.preventDefault();
             this.store.dispatch(action);
           }}
-          {...props}>
+          {...props}
+        >
           {children}
         </a>
       );
