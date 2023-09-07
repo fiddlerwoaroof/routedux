@@ -2,19 +2,19 @@
 
 exports[`additional props are passed through 1`] = `
 <Link
-  action={Object {}}
+  action={{}}
   className="foo"
   store={
-    Object {
+    {
       "dispatch": [MockFunction],
       "pathForAction": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {},
+        "calls": [
+          [
+            {},
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": "/my/path",
           },
@@ -28,16 +28,16 @@ exports[`additional props are passed through 1`] = `
     href="/my/path"
     onClick={[Function]}
     store={
-      Object {
+      {
         "dispatch": [MockFunction],
         "pathForAction": [MockFunction] {
-          "calls": Array [
-            Array [
-              Object {},
+          "calls": [
+            [
+              {},
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": "/my/path",
             },
@@ -53,18 +53,18 @@ exports[`additional props are passed through 1`] = `
 
 exports[`renders the url calculated by our internal function 1`] = `
 <Link
-  action={Object {}}
+  action={{}}
   store={
-    Object {
+    {
       "dispatch": [MockFunction],
       "pathForAction": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {},
+        "calls": [
+          [
+            {},
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": "/my/path",
           },
@@ -77,16 +77,16 @@ exports[`renders the url calculated by our internal function 1`] = `
     href="/my/path"
     onClick={[Function]}
     store={
-      Object {
+      {
         "dispatch": [MockFunction],
         "pathForAction": [MockFunction] {
-          "calls": Array [
-            Array [
-              Object {},
+          "calls": [
+            [
+              {},
             ],
           ],
-          "results": Array [
-            Object {
+          "results": [
+            {
               "type": "return",
               "value": "/my/path",
             },
