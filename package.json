@@ -20,7 +20,7 @@
     "redux": "^4.2.1"
   },
   "dependencies": {
-    "ramda": "^0.29.0"
+    "ramda": "^0.29.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",
