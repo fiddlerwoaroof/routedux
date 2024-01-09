@@ -30,7 +30,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/plugin-transform-react-jsx": "^7.14.3",
-    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.22.15",
     "@cfaester/enzyme-adapter-react-18": "^0.7.1",
     "babel-core": "7.0.0-bridge.0",
