@@ -36,7 +36,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "^30.0.4",
-    "dotenv": "17.0.1",
+    "dotenv": "17.2.0",
     "dotenv-expand": "12.0.2",
     "enzyme": "^3.10.0",
     "enzyme-to-json": "^3.6.2",
