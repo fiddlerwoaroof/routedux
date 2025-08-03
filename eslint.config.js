@@ -22,8 +22,7 @@ module.exports = [
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.jest,
-        ...globals.es6
+        ...globals.jest
       }
     },
     settings: {
