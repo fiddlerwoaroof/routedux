@@ -9,38 +9,38 @@ module.exports = [
     files: ["**/*.js", "**/*.jsx"],
     plugins: {
       react,
-      import: importPlugin
+      import: importPlugin,
     },
     languageOptions: {
       parserOptions: {
         ecmaVersion: 2018,
         sourceType: "module",
         ecmaFeatures: {
-          jsx: true
-        }
+          jsx: true,
+        },
       },
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.jest
-      }
+        ...globals.jest,
+      },
     },
     settings: {
       react: {
-        version: "detect"
-      }
+        version: "detect",
+      },
     },
     rules: {
       "no-unused-vars": [
         "error",
         {
           argsIgnorePattern: "(^[_][_]*$)|(^.$)",
-          varsIgnorePattern: "(^[_][_]*$)|(^R$)"
-        }
+          varsIgnorePattern: "(^[_][_]*$)|(^R$)",
+        },
       ],
       ...react.configs.recommended.rules,
       ...importPlugin.configs.errors.rules,
-      ...importPlugin.configs.warnings.rules
-    }
-  }
+      ...importPlugin.configs.warnings.rules,
+    },
+  },
 ];
