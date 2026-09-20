@@ -15,7 +15,7 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^19.2.4",
-    "react-dom": "^18.3.1",
+    "react-dom": "^19.2.4",
     "react-redux": "^8.1.2",
     "redux": "^5.0.1"
   },
@@ -30,7 +30,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/plugin-transform-react-jsx": "^8.0.1",
-    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-env": "^8.0.5",
     "@babel/preset-react": "^7.28.5",
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "babel-core": "7.0.0-bridge.0",
