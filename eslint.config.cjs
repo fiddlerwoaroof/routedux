@@ -44,8 +44,8 @@ module.exports = [
     },
     rules: {
       ...reactPlugin.configs.recommended.rules,
-      ...importPlugin.configs.errors.rules,
-      ...importPlugin.configs.warnings.rules,
+      ...importPlugin.flatConfigs.errors.rules,
+      ...importPlugin.flatConfigs.warnings.rules,
       "no-unused-vars": [
         "error",
         {
