@@ -134,5 +134,9 @@
     "trailingComma": "es5",
     "jsxBracketSameLine": true,
     "arrowParens": "avoid"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.9.0": true,
+    "core-js": false
   }
 }
