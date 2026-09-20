@@ -16,7 +16,7 @@
   "peerDependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-redux": "^8.1.2",
+    "react-redux": "^9.3.0",
     "redux": "^5.0.1"
   },
   "dependencies": {
@@ -24,16 +24,11 @@
   },
   "devDependencies": {
     "@babel/cli": "^8.0.5",
-    "@babel/core": "^7.29.7",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-json-strings": "^7.14.2",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.10.4",
+    "@babel/core": "^8.0.6",
     "@babel/plugin-transform-react-jsx": "^8.0.1",
     "@babel/preset-env": "^8.0.5",
-    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-react": "^8.0.1",
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
-    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",
     "babel-jest": "^30.5.1",
     "dotenv": "17.3.1",
@@ -51,9 +46,9 @@
     "jest-watch-typeahead": "^3.0.1",
     "prettier": "^3.8.1",
     "prop-types": "^15.5.10",
-    "react": "^19.2.4",
+    "react": "^18.3.1",
     "react-app-polyfill": "^3.0.0",
-    "react-dom": "^19.2.4",
+    "react-dom": "^18.3.1",
     "redux": "^5.0.1"
   },
   "scripts": {
@@ -98,38 +93,6 @@
       "json"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings"
-    ],
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true,
-      "es6": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "settings": {
-      "react": {
-        "version": "16.0"
-      }
-    },
-    "rules": {
-      "no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "(^[_][_]*$)|(^.$)",
-          "varsIgnorePattern": "(^[_][_]*$)|(^R$)"
-        }
-      ]
-    }
-  },
   "prettier": {
     "trailingComma": "es5",
     "jsxBracketSameLine": true,
@@ -138,5 +101,8 @@
   "allowScripts": {
     "unrs-resolver@1.9.0": true,
     "core-js": false
+  },
+  "overrides": {
+    "cheerio": "1.0.0-rc.12"
   }
 }
