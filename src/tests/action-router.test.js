@@ -6,9 +6,7 @@ import addMissingHistoryEvents from "../history-events.js";
 
 import { createFakeWindow, createLocation } from "./test-utils";
 
-//eslint-disable-next-line no-console
 const console_log = console.log;
-//eslint-disable-next-line no-console
 console.log = () => {};
 // function with_console(cb) {
 //   console.log = console_log;
@@ -369,5 +367,4 @@ it("cannot be double init'd", () => {
   expect(_actionDispatcher.currentPath).toEqual("/foo/something");
 });
 
-//eslint-disable-next-line no-console
 console.log = console_log;
