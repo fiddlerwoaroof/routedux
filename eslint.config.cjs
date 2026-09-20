@@ -27,6 +27,7 @@ module.exports = [
         __dirname: "readonly",
         jest: "readonly",
         describe: "readonly",
+        it: "readonly",
         test: "readonly",
         expect: "readonly",
         beforeEach: "readonly",
@@ -44,8 +45,8 @@ module.exports = [
     },
     rules: {
       ...reactPlugin.configs.recommended.rules,
-      ...importPlugin.flatConfigs.errors.rules,
-      ...importPlugin.flatConfigs.warnings.rules,
+      ...importPlugin.configs.errors.rules,
+      ...importPlugin.configs.warnings.rules,
       "no-unused-vars": [
         "error",
         {
