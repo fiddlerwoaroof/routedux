@@ -1,30 +1,26 @@
 import React from "react";
-import Adapter from "@cfaester/enzyme-adapter-react-18";
-import { act } from "react-dom/test-utils";
 import { createRouteDispatcher } from "../route-dispatcher";
 import { RouteLink, RouteProvider, withRoute } from "../provider-api";
 import { createFakeWindow, createLocation } from "./test-utils";
-import Enzyme, { mount } from "enzyme";
+const { act, fireEvent, render, screen } = require("@testing-library/react");
 
 const routesConfig = [
   ["/foo", "foo", {}],
   ["/bar/:id", "bar", {}],
 ];
 
-Enzyme.configure({ adapter: new Adapter() });
-
 describe("RouteProvider and helpers", () => {
   test("RouteProvider gives RouteLink correct info", () => {
     // given
     const _window = createFakeWindow("/foo");
     const routeDispatcher = createRouteDispatcher(routesConfig, _window);
-    const wrapper = mount(
+    render(
       <RouteProvider routeDispatcher={routeDispatcher}>
         <RouteLink routeName="bar" params={{ id: "foo" }} />
       </RouteProvider>
     );
     // when
-    const href = wrapper.find("RouteLink").find("a").prop("href");
+    const href = screen.getByRole("link").getAttribute("href");
     // then
     expect(href).toEqual("/bar/foo");
   });
@@ -37,13 +33,13 @@ describe("RouteProvider and helpers", () => {
     routeDispatcher.receiveRoute = route => {
       received = route;
     };
-    const wrapper = mount(
+    render(
       <RouteProvider routeDispatcher={routeDispatcher}>
         <RouteLink routeName="bar" params={{ id: "foo" }} />
       </RouteProvider>
     );
     // when
-    wrapper.find("a").simulate("click");
+    fireEvent.click(screen.getByRole("link"));
     // then
     expect(received).toEqual({ routeName: "bar", id: "foo" });
   });
@@ -61,26 +57,21 @@ describe("RouteProvider and helpers", () => {
     const _window = createFakeWindow("/foo");
     const routeDispatcher = createRouteDispatcher(routesConfig, _window);
 
-    let wrapper;
-    act(() => {
-      wrapper = mount(
-        <RouteProvider routeDispatcher={routeDispatcher}>
-          <DummyWithRoute>children text</DummyWithRoute>
-        </RouteProvider>
-      );
-    });
+    render(
+      <RouteProvider routeDispatcher={routeDispatcher}>
+        <DummyWithRoute>children text</DummyWithRoute>
+      </RouteProvider>
+    );
     // when
 
-    let routeText = wrapper.find(".route").text();
-    const childrenText = wrapper.find(".children").text();
+    let routeText = screen.getByText(/route/).textContent;
+    const childrenText = screen.getByText("children text").textContent;
     // then
     expect(routeText).toEqual(JSON.stringify({ routeName: "foo" }));
     expect(childrenText).toEqual("children text");
 
-    act(() => {
-      routeDispatcher.receiveLocation(createLocation("/bar/foo"));
-    });
-    routeText = wrapper.find(".route").text();
+    act(() => routeDispatcher.receiveLocation(createLocation("/bar/foo")));
+    routeText = screen.getByText(/route/).textContent;
     // then
     expect(routeText).toEqual(JSON.stringify({ id: "foo", routeName: "bar" }));
   });

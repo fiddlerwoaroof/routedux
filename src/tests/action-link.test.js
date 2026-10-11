@@ -1,11 +1,7 @@
 import { _internal } from "../action-link";
-import Enzyme, { mount } from "enzyme";
-import ezJson from "enzyme-to-json";
-import Adapter from "@cfaester/enzyme-adapter-react-18";
-Enzyme.configure({ adapter: new Adapter() });
-
 import React from "react";
 import PropTypes from "prop-types";
+const { fireEvent, render, screen } = require("@testing-library/react");
 
 const _Link = _internal.ActionLink(React, PropTypes);
 
@@ -20,15 +16,14 @@ it("dispatches an action on click", () => {
     children: "Hello World!",
   };
   class Link extends _Link {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.store = store;
     }
   }
 
-  const wrapper = mount(<Link {...{ ...props, store }} />);
-  // when
-  wrapper.simulate("click");
+  render(<Link {...{ ...props, store }} />);
+  fireEvent.click(screen.getByRole("link"));
 
   //then
   expect(store.pathForAction.mock.calls).toEqual([
@@ -49,15 +44,16 @@ it("renders the url calculated by our internal function", () => {
   };
 
   class Link extends _Link {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.store = store;
     }
   }
 
-  const wrapper = mount(<Link {...{ ...props, store }} />);
+  render(<Link {...{ ...props, store }} />);
 
-  expect(ezJson(wrapper)).toMatchSnapshot();
+  expect(screen.getByRole("link").getAttribute("href")).toEqual("/my/path");
+  expect(screen.getByText("Hello World!")).toBeTruthy();
 });
 
 it("additional props are passed through", () => {
@@ -73,13 +69,13 @@ it("additional props are passed through", () => {
   };
 
   class Link extends _Link {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.store = store;
     }
   }
 
-  const wrapper = mount(<Link {...{ ...props, store }} />);
+  render(<Link {...{ ...props, store }} />);
 
-  expect(ezJson(wrapper)).toMatchSnapshot();
+  expect(screen.getByRole("link").getAttribute("class")).toEqual("foo");
 });

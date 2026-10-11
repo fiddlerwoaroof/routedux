@@ -1,23 +1,20 @@
 import React from "react";
 import Fragment from "../fragment";
-import ezJson from "enzyme-to-json";
-import Enzyme, { shallow } from "enzyme";
-import Adapter from "@cfaester/enzyme-adapter-react-18";
-Enzyme.configure({ adapter: new Adapter() });
+const { render, screen } = require("@testing-library/react");
 
 it("should display when state is truthy", () => {
   // given
   const state = { property: true };
   // when
 
-  const wrapper = shallow(
+  render(
     <Fragment state={state} filterOn="property">
       <div>Hello</div>
     </Fragment>
   );
 
   // then
-  expect(ezJson(wrapper)).toMatchSnapshot();
+  expect(screen.getByText("Hello")).toBeTruthy();
 });
 
 it("should not display when state is falsy", () => {
@@ -25,14 +22,14 @@ it("should not display when state is falsy", () => {
   const state = { property: undefined };
   // when
 
-  const wrapper = shallow(
+  render(
     <Fragment state={state} filterOn="property">
       <div>Hello</div>
     </Fragment>
   );
 
   // then
-  expect(ezJson(wrapper)).toBeFalsy();
+  expect(screen.queryByText("Hello")).toBeNull();
 });
 
 it("should handle paths in the state tree", () => {
@@ -40,14 +37,14 @@ it("should handle paths in the state tree", () => {
   const state = { property: { subproperty: true } };
   // when
 
-  const wrapper = shallow(
+  render(
     <Fragment state={state} filterOn="property.subproperty">
       <div>Hello</div>
     </Fragment>
   );
 
   // then
-  expect(ezJson(wrapper)).toMatchSnapshot();
+  expect(screen.getByText("Hello")).toBeTruthy();
 });
 
 it("should handle arrays in the state tree", () => {
@@ -55,25 +52,25 @@ it("should handle arrays in the state tree", () => {
   const state = { property: [{ bar: {} }] };
   // when
 
-  const wrapper = shallow(
+  render(
     <Fragment state={state} filterOn="property.0.bar">
       <div>Hello</div>
     </Fragment>
   );
 
   // then
-  expect(ezJson(wrapper)).toMatchSnapshot();
+  expect(screen.getByText("Hello")).toBeTruthy();
 });
 
 it("should be falsy if missing state tree", () => {
   // given
   const state = { property: { subproperty: true } };
 
-  const wrapper = shallow(
+  render(
     <Fragment state={state} filterOn="property.missingproperty.something">
       <div>Hello</div>
     </Fragment>
   );
 
-  expect(ezJson(wrapper)).toBeFalsy();
+  expect(screen.queryByText("Hello")).toBeNull();
 });
