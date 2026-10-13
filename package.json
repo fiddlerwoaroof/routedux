@@ -43,7 +43,7 @@
     "jest-pnp-resolver": "1.2.3",
     "jest-resolve": "30.5.1",
     "jest-watch-typeahead": "^3.0.1",
-    "prettier": "^3.9.9",
+    "prettier": "^3.9.10",
     "react": "^19.3.0",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^19.3.0",
